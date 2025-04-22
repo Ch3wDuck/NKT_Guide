@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Научный навигатор</title>
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    .sidebar {
+      width: 300px;
+      background-color: #e8f1fb;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+      position: fixed;
+    }
+    .sidebar h2 {
+      color: #003d73;
+    }
+    .sidebar a {
+      display: block;
+      padding: 8px;
+      color: #005baa;
+      text-decoration: none;
+      margin: 5px 0;
+      border-radius: 6px;
+    }
+    .sidebar a:hover {
+      background-color: #d6e9fd;
+    }
+    .main {
+      margin-left: 320px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h1 {
+      color: #003d73;
+    }
+  </style>
+<script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      const activeSection = document.getElementById(id);
+      if (activeSection) {
+        activeSection.classList.add('active');
+      }
+    }
+  </script>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #1c1c1c;
+}
+h2 {
+    color: #005baa;
+    font-weight: 700;
+}
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.sidebar {
+    background-color: #002e5d;
+    color: white;
+}
+.sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background-color: #005baa;
+}
+.section-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.icon {
+    margin-right: 8px;
+    color: #005baa;
+}
+</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f5f9ff;
+      color: #333;
+      display: flex;
+    }
+    .sidebar {
+      background: #e8f1fb;
+      padding: 1rem;
+      width: 300px;
+      height: 100vh;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+      position: fixed;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: #dce8f6;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #b0cdea;
+      border-radius: 4px;
+    }
+    .sidebar h2 {
+      font-size: 1.1rem;
+      color: #005baa;
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #005baa;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+    }
+    .sidebar a:hover {
+      background: #d6e9fd;
+    }
+    .main-content {
+      margin-left: 320px;
+      padding: 2rem;
+      flex: 1;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section h2 {
+      color: #003d73;
+    }
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    .navigation-buttons a {
+      text-decoration: none;
+      color: white;
+      background-color: #0072ce;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+    }
+    ul li::before {
+      content: "\f00c";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: #0072ce;
+      margin-right: 0.5rem;
+    }
+    .sub-links {
+      margin-left: 1rem;
+    }
+</style>
+</head>
+<body>
+<div class="sidebar"><img alt="Газпром нефть" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Gazprom_neft_logo.svg" style="max-width: 160px; height: auto; display: block; margin: 0 auto 10px;"/>
+<h1 style="font-size: 20px; margin-bottom: 20px; color: #003366;">Научный навигатор:<br/>Ваш гид по участию в<br/>Научно-Технических конференциях<br/>ПАО "Газпром нефть"</h1>
+<h2>Содержание</h2>
+<a href="javascript:void(0);" onclick="showSection('sec1')"><i class="fa-solid fa-award" style="margin-right: 8px;"></i>1. Преимущества участия в НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec11')" style="margin-left: 20px;"><i class="fa-solid fa-user-graduate" style="margin-right: 8px;"></i>1.1 Значение участия для молодых специалистов</a>
+<a href="javascript:void(0);" onclick="showSection('sec12')" style="margin-left: 20px;"><i class="fa-solid fa-user-tie" style="margin-right: 8px;"></i>1.2 Значение участия для кураторов</a>
+<a href="javascript:void(0);" onclick="showSection('sec2')"><i class="fa-solid fa-building" style="margin-right: 8px;"></i>2. Обзор структуры компании, стратегических направлений и текущих вызовов в рамках НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec3')"><i class="fa-solid fa-lightbulb" style="margin-right: 8px;"></i>3. Выбор темы для участия в НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec31')" style="margin-left: 20px;"><i class="fa-solid fa-search" style="margin-right: 8px;"></i>3.1 Анализ ключевых проблем компании для выявления актуальных тем и гипотез</a>
+<a href="javascript:void(0);" onclick="showSection('sec32')" style="margin-left: 20px;"><i class="fa-solid fa-check-circle" style="margin-right: 8px;"></i>3.2 Оценка актуальности выбранной темы</a>
+<a href="javascript:void(0);" onclick="showSection('sec33')" style="margin-left: 20px;"><i class="fa-solid fa-database" style="margin-right: 8px;"></i>3.3 Запрос и сбор необходимых данных для подготовки материалов по теме. Алгоритмы поиска информации</a>
+<a href="javascript:void(0);" onclick="showSection('sec34')" style="margin-left: 20px;"><i class="fa-solid fa-users" style="margin-right: 8px;"></i>3.4 Поиск профильных кураторов для тем НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec35')" style="margin-left: 20px;"><i class="fa-solid fa-laptop-code" style="margin-right: 8px;"></i>3.5 Краткое руководство по работе с платформой СРЗ для участников НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec36')" style="margin-left: 20px;"><i class="fa-solid fa-brain" style="margin-right: 8px;"></i>3.6 Краткое руководство по работе с платформой ИДЕЯ для участников НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec4')"><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i>4. База актуальных направлений тем НТК (ежегодное обновление)</a>
+<a href="javascript:void(0);" onclick="showSection('sec5')"><i class="fa-solid fa-address-book" style="margin-right: 8px;"></i>5. Список кураторов НТК (ежегодное обновление)</a>
+<a href="javascript:void(0);" onclick="showSection('sec6')"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>6. Подача заявки на участие в НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec7')"><i class="fa-solid fa-calendar-alt" style="margin-right: 8px;"></i>7. График и ссылки на коммуникационные сессии НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec8')"><i class="fa-solid fa-route" style="margin-right: 8px;"></i>8. Дорожная карта проведения НТК</a>
+<a href="javascript:void(0);" onclick="showSection('sec9')"><i class="fa-solid fa-school" style="margin-right: 8px;"></i>9. Организация проведения НТК на базе ДО</a>
+<a href="javascript:void(0);" onclick="showSection('sec10')"><i class="fa-solid fa-industry" style="margin-right: 8px;"></i>10. Организация проведения НТК на базе ПАО</a>
+<a href="javascript:void(0);" onclick="showSection('secПриложение 1')"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i>Приложение 1. Контакты организаторов и экспертов</a>
+<a href="javascript:void(0);" onclick="showSection('secПриложение 2')"><i class="fa-solid fa-clipboard-check" style="margin-right: 8px;"></i>Приложение 2. Чек-листы для участников и кураторов</a>
+<a href="javascript:void(0);" onclick="showSection('secПриложение 3')"><i class="fa-solid fa-calculator" style="margin-right: 8px;"></i>Приложение 3. Калькулятор и шаблон для экономико-технологического обоснования</a>
+<a href="javascript:void(0);" onclick="showSection('secПриложение 4')"><i class="fa-solid fa-file-signature" style="margin-right: 8px;"></i>Приложение 4. Форма заявки участника</a>
+<a href="javascript:void(0);" onclick="showSection('secПриложение 5')"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>Приложение 5. Шаблон письма с запросом информации эксперту</a>
+</div>
+<div class="main">
+<div class="section" id="sec1"><h2><i class="fa-solid fa-award" style="margin-right: 10px; color: #003d73;"></i>1. Преимущества участия в НТК</h2><p>
+<p>Участие в Научно-Технической конференции (НТК) ПАО "Газпром нефть" предоставляет сотрудникам уникальные возможности для профессионального роста и развития:</p>
+<ul>
+<li><strong>Обмен опытом:</strong> Участники получают возможность представить свои разработки, обменяться идеями и обсудить инновационные подходы с коллегами из различных подразделений.</li>
+<li><strong>Признание и карьерный рост:</strong> Лучшие проекты получают признание на уровне компании, что может стать толчком для профессионального роста.</li>
+<li><strong>Доступ к экспертной поддержке:</strong> В рамках НТК участники взаимодействуют с опытными кураторами и экспертами, что позволяет повысить качество проработки тем.</li>
+<li><strong>Развитие проектного мышления:</strong> Работа над докладом способствует развитию навыков системного анализа, аргументации и презентации идей.</li>
+</ul>
+<h3>Инфографика: Цепочка преимуществ участия</h3>
+<img alt="Преимущества участия в НТК" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Icon-education.svg/240px-Icon-education.svg.png" width="150"/>
+<h3>Таблица: Влияние участия в НТК на карьерный рост</h3>
+<table border="1" cellpadding="6">
+<tr>
+<th>Этап</th>
+<th>Преимущество</th>
+</tr>
+<tr>
+<td>Подача заявки</td>
+<td>Формирование идеи и вовлечённость</td>
+</tr>
+<tr>
+<td>Проработка темы</td>
+<td>Глубокое понимание процессов, консультации с экспертами</td>
+</tr>
+<tr>
+<td>Выступление</td>
+<td>Навыки публичных выступлений, командная работа</td>
+</tr>
+<tr>
+<td>Отбор</td>
+<td>Признание, рекомендации, карьерные возможности</td>
+</tr>
+</table>
+.</p></div>
+<div class="section" id="sec11"><h2><i class="fa-solid fa-user-graduate" style="margin-right: 10px; color: #003d73;"></i>1.1 Значение участия для молодых специалистов</h2><p>
+<p>Участие в Научно-Технических конференциях (НТК) предоставляет молодым специалистам уникальные возможности для профессионального роста и самореализации. Ниже представлены ключевые преимущества:</p>
+<ul>
+<li><strong>Развитие компетенций:</strong> подготовка и защита научных проектов позволяет совершенствовать аналитические и презентационные навыки.</li>
+<li><strong>Нетворкинг:</strong> участие в НТК способствует установлению контактов с экспертами, коллегами из других подразделений и потенциальными менторами.</li>
+<li><strong>Признание:</strong> успешное выступление на конференции может стать важным этапом карьерного развития, повысить видимость сотрудника в компании.</li>
+<li><strong>Практическая реализация идей:</strong> лучшие проекты могут быть внедрены в производственные процессы или стать основой для стратегических инициатив.</li>
+</ul>
+<p><strong>Статистика:</strong></p>
+<table border="1" cellpadding="8" style="border-collapse: collapse; width: 80%;">
+<thead>
+<tr style="background-color: #f0f0f0;">
+<th>Год</th>
+<th>Количество участников</th>
+<th>Проектов, реализованных по итогам НТК</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022</td>
+<td>150</td>
+<td>38</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>190</td>
+<td>52</td>
+</tr>
+</tbody>
+</table>
+</p></div>
+<div class="section" id="sec12"><h2><i class="fa-solid fa-user-tie" style="margin-right: 10px; color: #003d73;"></i>1.2 Значение участия для кураторов</h2><p>
+
+<p>Кураторы играют ключевую роль в успехе Научно-Технической конференции (НТК). Их участие позволяет обеспечить:</p>
+<ul>
+<li><strong>Методическую поддержку:</strong> Кураторы помогают участникам структурировать идеи, оформлять документы и подготавливать доклады.</li>
+<li><strong>Повышение качества проектов:</strong> Благодаря экспертной оценке кураторов повышается уровень технической проработки и значимости представляемых тем.</li>
+<li><strong>Передачу знаний:</strong> Кураторы, обладая опытом и знаниями, становятся наставниками, способствующими профессиональному росту молодых специалистов.</li>
+</ul>
+<p>Таким образом, участие кураторов в НТК способствует развитию культуры наставничества, укреплению корпоративной экспертизы и выстраиванию прочных профессиональных связей.</p>
+</p></div>
+<div class="section" id="sec2"><h2><i class="fa-solid fa-building" style="margin-right: 10px; color: #003d73;"></i>2. Обзор структуры компании, стратегических направлений и текущих вызовов в рамках НТК</h2><p>Здесь будет информация по разделу "Обзор структуры компании, стратегических направлений и текущих вызовов в рамках НТК".</p></div>
+<div class="section" id="sec3"><h2><i class="fa-solid fa-lightbulb" style="margin-right: 10px; color: #003d73;"></i>3. Выбор темы для участия в НТК</h2><p>
+<p>Выбор темы для участия в Научно-Технической конференции (НТК) — важнейший шаг, определяющий направление работы участника и его вклад в развитие компании. Этот этап требует аналитического подхода и понимания текущих приоритетов и вызовов компании.</p>
+<h3>Критерии выбора темы:</h3>
+<ul>
+<li>Соответствие стратегическим направлениям развития ПАО "Газпром нефть".</li>
+<li>Решение актуальных технологических или управленческих проблем.</li>
+<li>Инновационный потенциал и применимость предложенных решений.</li>
+<li>Наличие достаточной информации и данных для анализа и обоснования.</li>
+</ul>
+<h3>Источники поиска тем:</h3>
+<p>Темы могут быть выбраны на основе:</p>
+<ul>
+<li>Внутренних задач подразделений компании.</li>
+<li>Анализа технологических узких мест.</li>
+<li>Инициатив, выдвигаемых кураторами и руководителями направлений.</li>
+<li>Проектов, реализуемых в рамках производственной деятельности.</li>
+</ul>
+<h3>Полезный совет:</h3>
+<p>Рекомендуется проконсультироваться с наставником, куратором или руководителем проекта, чтобы уточнить актуальность темы и её приоритетность для компании.</p>
+<h3>Инфографика: Этапы выбора темы</h3>
+<img alt="Этапы выбора темы" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Light_bulb_icon.svg/1024px-Light_bulb_icon.svg.png" width="150"/>
+<p><em>Выбор → Анализ → Согласование → Исследование</em></p>
+</p></div>
+<div class="section" id="sec31"><h2><i class="fa-solid fa-search" style="margin-right: 10px; color: #003d73;"></i>3.1 Анализ ключевых проблем компании для выявления актуальных тем и гипотез</h2><p>
+<p>Перед участием в НТК важно понять ключевые вызовы, с которыми сталкивается компания. Такой анализ позволяет 
+    участникам сосредоточиться на реально значимых задачах, увеличивая шансы на принятие и реализацию их инициатив.</p>
+<h3>Источники информации для анализа проблем:</h3>
+<ul>
+<li>Стратегические документы компании</li>
+<li>Отчёты по итогам предыдущих НТК</li>
+<li>Интервью с руководителями и специалистами подразделений</li>
+<li>Анализ производственных показателей и инцидентов</li>
+</ul>
+<h3>Методики выявления гипотез:</h3>
+<ol>
+<li>Формулирование проблемы по модели «Что? Почему? К чему приводит?»</li>
+<li>Использование метода "5 почему"</li>
+<li>SWOT-анализ текущих процессов</li>
+</ol>
+<h3>Пример таблицы для систематизации проблем:</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+<tr>
+<th>Проблема</th>
+<th>Последствия</th>
+<th>Возможная гипотеза</th>
+</tr>
+<tr>
+<td>Низкая производительность установки</td>
+<td>Потери в выпуске продукции</td>
+<td>Оптимизация режима работы оборудования</td>
+</tr>
+<tr>
+<td>Длительное согласование заявок</td>
+<td>Замедление процессов</td>
+<td>Внедрение цифровых инструментов согласования</td>
+</tr>
+</table>
+    .</p></div>
+<div class="section" id="sec32"><h2><i class="fa-solid fa-check-circle" style="margin-right: 10px; color: #003d73;"></i>3.2 Оценка актуальности выбранной темы</h2><p>
+
+<p>Оценка актуальности выбранной темы — важнейший этап в подготовке к участию в НТК, позволяющий определить, насколько исследуемая проблема соответствует текущим задачам компании и стратегическим направлениям её развития.</p>
+<h3>Критерии оценки:</h3>
+<ul>
+<li><strong>Стратегическая значимость:</strong> Насколько тема вписывается в долгосрочную стратегию компании?</li>
+<li><strong>Актуальность для производственных процессов:</strong> Решает ли тема конкретные задачи или узкие места в текущей операционной деятельности?</li>
+<li><strong>Инновационность:</strong> Предлагает ли тема новые подходы, технологии или методы?</li>
+<li><strong>Масштаб применимости:</strong> Может ли результат быть масштабирован на другие подразделения?</li>
+<li><strong>Поддержка со стороны руководства:</strong> Есть ли заинтересованность у руководства в решении данной проблемы?</li>
+</ul>
+<h3>Методы оценки:</h3>
+<ol>
+<li>Анализ внутренней документации и стратегических программ.</li>
+<li>Интервью с профильными руководителями и экспертами.</li>
+<li>Сравнение с реализованными проектами предыдущих НТК.</li>
+<li>SWOT-анализ идеи (сильные и слабые стороны, возможности и угрозы).</li>
+</ol>
+<p>Тщательная и объективная оценка позволит не только повысить шансы на успешную реализацию проекта, но и обеспечить высокую экспертную поддержку со стороны кураторов.</p>
+</p></div>
+<div class="section" id="sec33"><h2><i class="fa-solid fa-database" style="margin-right: 10px; color: #003d73;"></i>3.3 Запрос и сбор необходимых данных для подготовки материалов по теме. Алгоритмы поиска информации</h2><p>
+
+<p>Для успешного участия в НТК необходимо собрать полные и достоверные данные, на основе которых будет формироваться гипотеза и разрабатываться решение.</p>
+<h3>Источники данных:</h3>
+<ul>
+<li>Внутренние корпоративные системы и базы данных</li>
+<li>Платформы СРЗ и ИДЕЯ</li>
+<li>Отчеты подразделений и статистика производственных процессов</li>
+<li>Интервью с экспертами и кураторами</li>
+</ul>
+<h3>Алгоритмы поиска информации:</h3>
+<ol>
+<li>Определите ключевые параметры и показатели, которые необходимы для анализа</li>
+<li>Используйте фильтры и ключевые слова при работе с платформами</li>
+<li>Систематизируйте найденные данные в таблицы</li>
+<li>Проверьте достоверность и актуальность информации</li>
+</ol>
+<h3>Пример таблицы сбора данных:</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+<thead>
+<tr>
+<th>Источник</th>
+<th>Тип данных</th>
+<th>Ответственный</th>
+<th>Дата получения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>СРЗ</td>
+<td>Показатели эффективности оборудования</td>
+<td>Иванов И.И.</td>
+<td>12.03.2025</td>
+</tr>
+<tr>
+<td>ИДЕЯ</td>
+<td>Аналогичные проекты прошлых лет</td>
+<td>Петрова А.А.</td>
+<td>14.03.2025</td>
+</tr>
+</tbody>
+</table>
+.</p></div>
+<div class="section" id="sec34"><h2><i class="fa-solid fa-users" style="margin-right: 10px; color: #003d73;"></i>3.4 Поиск профильных кураторов для тем НТК</h2><p>
+<p>Поиск профильных кураторов — важный шаг для успешного участия в НТК. Кураторы играют роль наставников и помогают участникам в выборе актуальной темы, сборе информации и оформлении материалов.</p>
+<ul>
+<li><strong>Использование внутренних ресурсов:</strong> ознакомьтесь с доступным списком экспертов по направлениям.</li>
+<li><strong>Связь через платформу:</strong> используйте платформы СРЗ и ИДЕЯ для поиска специалистов с нужной экспертизой.</li>
+<li><strong>Обращение к руководителю:</strong> ваш непосредственный руководитель может помочь направить к нужному куратору.</li>
+</ul>
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr>
+<th>Направление</th>
+<th>Куратор</th>
+<th>Контакты</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Бурение и добыча</td>
+<td>Иванов И.И.</td>
+<td>ivanov@gazprom-neft.ru</td>
+</tr>
+<tr>
+<td>Переработка</td>
+<td>Петрова А.С.</td>
+<td>petrova@gazprom-neft.ru</td>
+</tr>
+</tbody>
+</table>
+</p></div>
+<div class="section" id="sec35"><h2><i class="fa-solid fa-laptop-code" style="margin-right: 10px; color: #003d73;"></i>3.5 Краткое руководство по работе с платформой СРЗ для участников НТК</h2><p>
+
+<p>Платформа СРЗ (Система Развития Знаний) предназначена для управления знаниями, взаимодействия сотрудников и хранения материалов по научно-техническим конференциям.</p>
+<h3>Основные функции СРЗ:</h3>
+<ul>
+<li>Подача и отслеживание заявок на участие в НТК</li>
+<li>Хранение документов и презентаций по темам</li>
+<li>Общение с кураторами и экспертами</li>
+<li>Доступ к шаблонам и чек-листам</li>
+</ul>
+<h3>Инструкция по работе:</h3>
+<ol>
+<li>Авторизуйтесь в системе под корпоративным логином</li>
+<li>Перейдите в раздел "Научно-Технические Конференции"</li>
+<li>Выберите соответствующую НТК и нажмите "Принять участие"</li>
+<li>Заполните заявку и прикрепите необходимые документы</li>
+<li>Отслеживайте статус заявки через личный кабинет</li>
+</ol>
+<p>Важно! Все обновления и напоминания публикуются в уведомлениях платформы — рекомендуем регулярно их просматривать.</p>
+</p></div>
+<div class="section" id="sec36"><h2><i class="fa-solid fa-brain" style="margin-right: 10px; color: #003d73;"></i>3.6 Краткое руководство по работе с платформой ИДЕЯ для участников НТК</h2><p>Здесь будет информация по подразделу "Краткое руководство по работе с платформой ИДЕЯ для участников НТК".</p></div>
+<div class="section" id="sec4"><h2><i class="fa-solid fa-layer-group" style="margin-right: 10px; color: #003d73;"></i>4. База актуальных направлений тем НТК (ежегодное обновление)</h2><p>Здесь будет информация по разделу "База актуальных направлений тем НТК (ежегодное обновление)".</p></div>
+<div class="section" id="sec5"><h2><i class="fa-solid fa-address-book" style="margin-right: 10px; color: #003d73;"></i>5. Список кураторов НТК (ежегодное обновление)</h2><p>Здесь будет информация по разделу "Список кураторов НТК (ежегодное обновление)".</p></div>
+<div class="section" id="sec6"><h2><i class="fa-solid fa-paper-plane" style="margin-right: 10px; color: #003d73;"></i>6. Подача заявки на участие в НТК</h2><p>Здесь будет информация по разделу "Подача заявки на участие в НТК".</p></div>
+<div class="section" id="sec7"><h2><i class="fa-solid fa-calendar-alt" style="margin-right: 10px; color: #003d73;"></i>7. График и ссылки на коммуникационные сессии НТК</h2><p>Здесь будет информация по разделу "График и ссылки на коммуникационные сессии НТК".</p></div>
+<div class="section" id="sec8"><h2><i class="fa-solid fa-route" style="margin-right: 10px; color: #003d73;"></i>8. Дорожная карта проведения НТК</h2><p>Здесь будет информация по разделу "Дорожная карта проведения НТК".</p></div>
+<div class="section" id="sec9"><h2><i class="fa-solid fa-school" style="margin-right: 10px; color: #003d73;"></i>9. Организация проведения НТК на базе ДО</h2><p>Здесь будет информация по разделу "Организация проведения НТК на базе ДО".</p></div>
+<div class="section" id="sec10"><h2><i class="fa-solid fa-industry" style="margin-right: 10px; color: #003d73;"></i>10. Организация проведения НТК на базе ПАО</h2><p>Здесь будет информация по разделу "Организация проведения НТК на базе ПАО".</p></div>
+<div class="section" id="secПриложение 1"><h2><i class="fa-solid fa-phone" style="margin-right: 10px; color: #003d73;"></i>Приложение 1. Контакты организаторов и экспертов</h2><p>Здесь будет информация по разделу "Контакты организаторов и экспертов".</p></div>
+<div class="section" id="secПриложение 2"><h2><i class="fa-solid fa-clipboard-check" style="margin-right: 10px; color: #003d73;"></i>Приложение 2. Чек-листы для участников и кураторов</h2><p>Здесь будет информация по разделу "Чек-листы для участников и кураторов".</p></div>
+<div class="section" id="secПриложение 3"><h2><i class="fa-solid fa-calculator" style="margin-right: 10px; color: #003d73;"></i>Приложение 3. Калькулятор и шаблон для экономико-технологического обоснования</h2><p>Здесь будет информация по разделу "Калькулятор и шаблон для экономико-технологического обоснования".</p></div>
+<div class="section" id="secПриложение 4"><h2><i class="fa-solid fa-file-signature" style="margin-right: 10px; color: #003d73;"></i>Приложение 4. Форма заявки участника</h2><p>Здесь будет информация по разделу "Форма заявки участника".</p></div>
+<div class="section" id="secПриложение 5"><h2><i class="fa-solid fa-envelope" style="margin-right: 10px; color: #003d73;"></i>Приложение 5. Шаблон письма с запросом информации эксперту</h2><p>Здесь будет информация по разделу "Шаблон письма с запросом информации эксперту".</p></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    showSection('sec1');
+  });
+</script>
+
+</body>
+</html>
